@@ -4,7 +4,7 @@ import sys
 from nltk.corpus import stopwords
 
 matches = ""
-# text = "this is a test (248)698-0988 so is this 1233211234 and this 123-123-2222"
+# text = "this is a tes (248)698-0988 so is this 1233211234 and this 123-123-2222"
 # print(sys.argv[1])
 text = sys.argv[1]
 
