@@ -1,2 +1,2 @@
 ##About 
-uses puppetter and nltk
+- uses puppetter and nltk
