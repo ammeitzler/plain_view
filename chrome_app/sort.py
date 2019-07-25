@@ -8,6 +8,7 @@ matches = ""
 # text = "this is a tes (248)698-0988 so is this 510-748-8230 if it's before 9:30, or on 703-4800500 "
 # print(sys.argv[1])
 text = sys.argv[1]
+print("1")
 
 def extract_phone_numbers(string):
 	match_array = []

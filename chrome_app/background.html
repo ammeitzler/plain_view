@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+     <style>
+        body {
+            width: 300px;
+      color: #00f;
+        }
+    h2 {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    #info {
+        padding: 20px 10px;
+    }
+    #info p {
+      text-align: left;
+      width: 50%;
+      margin: 0;
+      display: inline-block;
+    }
+    #info button {
+        float: right;
+    }
+    button {
+        border: 1px solid black;
+        padding: 10px 15px;
+    }
+    </style>
+ <body>
+    <h2 id="title">Plain View</h2>
+    <div id="info">
+        <p>retrive phone numbers from the current tab in view</p>
+        <button type="button" id="choice1" class="option">Create Directory</button>
+    </div>
+    <div id="loaded_content">
+        <ul> 
+        </ul>
+    </div>
+
+    </body>
+    <script src="scripts/require.js"></script>
+    <script src="scripts/jquery-3.2.0.min.js"></script>
+    <script src="puppet.js"></script>
+    <script src="popup.js"></script>
+</html>

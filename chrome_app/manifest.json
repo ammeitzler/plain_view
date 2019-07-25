@@ -1,0 +1,43 @@
+ {
+ "name": "Plain View",
+  "version" : "1.0",
+   "permissions": [
+   "activeTab",
+   "tabs",
+   "pageCapture",
+   "clipboardWrite",
+   "contextMenus",
+   "storage"
+   ],
+  "description": "A Chrome Extension to help you to make contact.",
+  "icons": {                   
+    "19": "icon/pb.png",
+    "38": "icon/pb.png",
+    "48": "icon/pb.png",
+    "128": "icon/pb.png"  
+  },    
+    "background": {
+      "scripts": ["popup.js"],
+      "persistent": false
+    },
+    "content_scripts" : [{
+            "matches" : ["<all_urls>"],
+            "js":   ["scripts/require.js","scripts/jquery-3.2.0.min.js","puppet.js"],
+            "run_at": "document_idle"
+        }],
+    "web_accessible_resources": [
+        "popup.js", "puppet.js", "images/*.png","images/*.jpg"
+    ],
+  "browser_action": {
+    "default_icon": "icon/pb.png",
+    "default_popup": "background.html",
+    "default_icon": {                   
+      "19": "icon/pb.png",
+      "38": "icon/pb.png",
+      "48": "icon/pb.png",
+      "128": "icon/pb.png"        
+  }
+  },
+     "manifest_version": 2
+}
+
