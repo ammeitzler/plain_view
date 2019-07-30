@@ -2,16 +2,19 @@ $(document).ready(function(){
 
 
   var phoneData = function(bodyHTML) {
-    //pass data to python sort.py
-    console.log("HEREE result")
-    $.ajax({
-       url: "sort.py",
-       data: {htmldata: bodyHTML},
-       success: function() {
-        console.log("sec")
-         // here you do whatever you want with the response variable
-       }
-    });
+    //get phone numbers from api  
+    var theURL = "https://plainview.herokuapp.com/phones"
+    function httpPOST(theURL) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "POST", theURL, false ); // false for synchronous request
+      xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      console.log("123")
+      xmlHttp.send("bodyHTML=Henry&lname=Ford");
+      console.log(xmlHttp.responseText)
+      return xmlHttp.responseText;
+    }
+    var getResponse = httpPOST(theURL)
+
     // var spawn = require(['child_process']).spawn
     // var child = spawn('python',["sort.py", bodyHTML])
 

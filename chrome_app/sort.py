@@ -22,9 +22,9 @@ def extract_phone_numbers(string):
 def main(text):
 	global matches
 	matches = extract_phone_numbers(text)
-	file = open("matches.txt", "w") 
-	file.write(str(matches))
-	file.close() 
+	# file = open("matches.txt", "w") 
+	# file.write(str(matches))
+	# file.close() 
 	return matches
 
 main(text)
