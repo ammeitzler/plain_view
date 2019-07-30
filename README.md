@@ -2,11 +2,11 @@
 
 #frontend chrome extension
 - tested using puppetter
-- built with javascript and jquery
+- built using javascript, jquery
 
 
 #api
-- built using Flask
+- built using python, Flask
 - deployed on heroku at https://plainview.herokuapp.com/
 	1. ENDPOINTS
 		- /phones GET (needs to change to POST call)
