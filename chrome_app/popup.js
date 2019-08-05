@@ -3,8 +3,8 @@ $(document).ready(function(){
 
   var phoneData = function(bodyHTML) {
     //get phone numbers from api  
-    // var theURL = "https://plainview.herokuapp.com/phonenum"
-    var theURL = "http://localhost:80/phonenum"
+    var theURL = "https://plainview.herokuapp.com/phonenum"
+    // var theURL = "http://localhost:80/phonenum"
     function httpPOST(theURL) {
       var xmlHttp = new XMLHttpRequest();
       var params = {"bodyHTML": bodyHTML};
@@ -15,6 +15,8 @@ $(document).ready(function(){
     }
     var getResponse = httpPOST(theURL)
     console.log(getResponse)
+    console.log(getResponse.split(" "))
+    $( "#loaded_content ul" ).append( "<li>" + getResponse +"</li>" );
   }
 
   var getBody = function(url) {
