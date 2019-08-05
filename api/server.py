@@ -1,30 +1,34 @@
 from flask import Flask
 import phonenumbers
+from flask import request
 
 app = Flask(__name__)
 
-
 matches = ""
 
-def extract_phone_numbers(string):
+def extract_phone_numbers(bodyHTML):
 	match_array = []
-	for match in phonenumbers.PhoneNumberMatcher(string, "US"):
+	for match in phonenumbers.PhoneNumberMatcher(bodyHTML, "US"):
 		match_array.append(match)
 	return match_array
 
-
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "break bread wit me"
 
-@app.route("/phone", methods=['GET'])
-def getPhoneNumbers():
-    return "phone!"
+@app.route("/phonenum", methods=["GET", "POST"])
+def home():
+    if request.method == "POST":
+        user_agent_received = request.get_json()
+        bodyHTML = user_agent_received["bodyHTML"]
 
-@app.route("/phones", methods=['POST'])
-def getPhones(bodyHTML):
-	console.log(bodyHTML)
-	return "phonessss"
+        """ send bodyhtml to phone extract lib """
+        global matches
+        matches = extract_phone_numbers(bodyHTML)
+        matches = ','.join(str(v) for v in matches)
+        print(matches)
+        return matches
+
 
 # @app.route("/allcontent", methods=['GET'])
 # def getContent():

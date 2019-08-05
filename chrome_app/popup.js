@@ -3,29 +3,18 @@ $(document).ready(function(){
 
   var phoneData = function(bodyHTML) {
     //get phone numbers from api  
-    var theURL = "https://plainview.herokuapp.com/phones"
+    // var theURL = "https://plainview.herokuapp.com/phonenum"
+    var theURL = "http://localhost:80/phonenum"
     function httpPOST(theURL) {
       var xmlHttp = new XMLHttpRequest();
+      var params = {"bodyHTML": bodyHTML};
       xmlHttp.open( "POST", theURL, false ); // false for synchronous request
-      xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      console.log("123")
-      xmlHttp.send("bodyHTML=Henry&lname=Ford");
-      console.log(xmlHttp.responseText)
+      xmlHttp.setRequestHeader("Content-type", "application/json");
+      xmlHttp.send(JSON.stringify(params));
       return xmlHttp.responseText;
     }
     var getResponse = httpPOST(theURL)
-
-    // var spawn = require(['child_process']).spawn
-    // var child = spawn('python',["sort.py", bodyHTML])
-
-    // util.log('initiated model')
-    // /* returned list of matches*/
-    // child.stdout.on('data',function(data){
-    //     var matches = data.toString('utf8');// buffer to string
-    //     util.log("returned " + matches);
-    // });
-    // util.log('returned model')
-
+    console.log(getResponse)
   }
 
   var getBody = function(url) {

@@ -9,8 +9,8 @@
 - built using python, Flask
 - deployed on heroku at https://plainview.herokuapp.com/
 	1. ENDPOINTS
-		- /phones GET (needs to change to POST call)
+		- /phonenum POST
 			1. uses https://github.com/daviddrysdale/python-phonenumbers to retrieve phone numbers from HTML
-		- /allcontent (for v2?)
-			1. retrieve all the content on any website
+		- /allcontent POST (for v2?)
+			1. retrieve all the content(instead of only single pages) on any website
 
