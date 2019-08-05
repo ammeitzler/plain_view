@@ -17,14 +17,14 @@ def extract_phone_numbers(string):
 def hello():
     return "Hello World!"
 
-# @app.route("/phone", methods=['GET'])
-# def getPhoneNumbers():
-#     return "phone!"
+@app.route("/phone", methods=['GET'])
+def getPhoneNumbers():
+    return "phone!"
 
 @app.route("/phones", methods=['POST'])
 def getPhones(bodyHTML):
 	console.log(bodyHTML)
-    return "phonessss"
+	return "phonessss"
 
 # @app.route("/allcontent", methods=['GET'])
 # def getContent():
