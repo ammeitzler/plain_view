@@ -13,10 +13,13 @@ $(document).ready(function(){
       xmlHttp.send(JSON.stringify(params));
       return xmlHttp.responseText;
     }
-    var getResponse = httpPOST(theURL)
-    console.log(getResponse)
-    console.log(getResponse.split(" "))
-    $( "#loaded_content ul" ).append( "<li>" + getResponse +"</li>" );
+    var response = httpPOST(theURL)
+    var response_json = JSON.parse(response )
+    console.log(response_json)
+    for (i = 0; i < response_json.length; i++) {
+      console.log(response_json[i])
+      $( "#loaded_content ul" ).append( "<li>number............." + response_json[i]["number"] +"</li>" );
+    }
   }
 
   var getBody = function(url) {
