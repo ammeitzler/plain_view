@@ -18,7 +18,7 @@ $(document).ready(function(){
     console.log(response_json)
     for (i = 0; i < response_json.length; i++) {
       console.log(response_json[i])
-      $( "#loaded_content ul" ).append( "<li>number............." + response_json[i]["number"] +"</li>" );
+      $( "#loaded_content ul" ).append( "<li>number....................................." + "<span class='digits'>"+response_json[i]["number"] +"</span></li>" );
     }
   }
 
