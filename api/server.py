@@ -1,6 +1,8 @@
 from flask import Flask
 import phonenumbers
 from flask import request
+import json
+
 
 app = Flask(__name__)
 
@@ -8,9 +10,16 @@ matches = ""
 
 def extract_phone_numbers(bodyHTML):
 	match_array = []
+	t_array = []
+
 	for match in phonenumbers.PhoneNumberMatcher(bodyHTML, "US"):
-		match_array.append(match)
-	return match_array
+		print(phonenumbers.format_number(match.number, phonenumbers.PhoneNumberFormat.E164))
+		m = phonenumbers.format_number(match.number, phonenumbers.PhoneNumberFormat.E164)
+		match_array.append(m)
+		item = {'number':m}
+		t_array.append(item)
+	jsonData=json.dumps(t_array)
+	return jsonData
 
 @app.route("/")
 def hello():
@@ -25,7 +34,6 @@ def home():
         """ send bodyhtml to phone extract lib """
         global matches
         matches = extract_phone_numbers(bodyHTML)
-        matches = ','.join(str(v) for v in matches)
         print(matches)
         return matches
 
